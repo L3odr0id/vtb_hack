@@ -3,7 +3,8 @@ import 'package:vtb_game_win/domain/entities/tutorial.dart';
 
 /// Страница уровня
 class LevelPage extends StatefulWidget {
-  LevelPage();
+  final List<Tutorial> tutorials;
+  LevelPage({this.tutorials = const []});
 
   @override
   State<StatefulWidget> createState() => _LevelPageState();
@@ -26,7 +27,7 @@ class _LevelPageState extends State<LevelPage> {
   }
 
   Widget _tutorial() {
-    // Получить туториалы из блока
+    widget.tutorials; // Доступ к туториалам
     return Container();
   }
 

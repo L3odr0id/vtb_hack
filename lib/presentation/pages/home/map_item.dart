@@ -23,7 +23,6 @@ class MapItem extends StatelessWidget {
         child: Center(
             child: IconButton(
                 onPressed: () {
-                  // TODO В блок обучения отправить туториалы этого уровня
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => LevelPage()),
