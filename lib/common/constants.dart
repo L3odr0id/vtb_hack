@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GetColor {
-  static const Color blueVTB = Color(0xff02298C);
+  static const Color darkBlueVTB = Color(0xff02298C);
   static const Color lightCircle = Color(0xff00A5FF);
 }
 

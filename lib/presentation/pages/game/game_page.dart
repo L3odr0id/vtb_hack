@@ -4,6 +4,7 @@ import 'package:swipeable_card_stack/swipe_controller.dart';
 import 'package:swipeable_card_stack/swipeable_card_stack.dart';
 import 'package:vtb_game_win/common/constants.dart';
 import 'package:vtb_game_win/common/debug.dart';
+import 'package:vtb_game_win/datasource/data.dart';
 import 'package:vtb_game_win/domain/entities/event.dart';
 import 'package:vtb_game_win/domain/entities/game_state.dart';
 import 'package:vtb_game_win/presentation/pages/game/card.dart';
@@ -17,7 +18,7 @@ class _GamePageState extends State<GamePage> {
   SwipeableCardSectionController _cardController =
       SwipeableCardSectionController();
 
-  GameState currentState = GameState(currentEvent: debugEvent);
+  GameState currentState = GameState(currentEvent: productionEvents.first);
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +47,11 @@ class _GamePageState extends State<GamePage> {
             'общий капитал',
             style: GetTextStyle.smallGrey,
           ),
-          Text(currentState.currentMoney.toString())
+          Text(currentState.currentMoney.toString()),
         ],
       ),
       circularStrokeCap: CircularStrokeCap.butt,
-      backgroundColor: GetColor.blueVTB,
+      backgroundColor: GetColor.darkBlueVTB,
       progressColor: GetColor.lightCircle,
     );
   }
@@ -62,8 +63,8 @@ class _GamePageState extends State<GamePage> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Text("Latest news")],
-            ), 
+              children: [Text("Последние новости")],
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [Icon(Icons.fiber_manual_record_outlined)],
@@ -72,15 +73,7 @@ class _GamePageState extends State<GamePage> {
         ),
         Padding(
           padding: const EdgeInsets.all(10.0),
-          child: Text("По словам Лизы Су, главного исполнительного директора AMD, "
-              "в этом году появится 20 новых заводов по производству микросхем "
-              "и еще столько же в следующем году. Так же она напомнила, "
-              "что компания ожидает закрытия сделки по покупке разработчика "
-              "интегральных микросхем Xilinx к концу этого года. Тем не менее,"
-              " Су всячески уклонялась от ответа на вопрос о том, не угрожает ли"
-              " AMD переход некоторых компаний, производящих электронику, "
-              "на микросхемы собственной разработки. Стоимость акций AMD "
-              "снижаются в ходе предварительных торгов на бирже Nasdaq во вторник."),
+          child: Text(currentState.currentEvent.eventText),
         )
       ]),
     );
