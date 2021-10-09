@@ -167,8 +167,10 @@ class _GamePageState extends State<GamePage> {
       items: [
         CardView(
           image: 'amd1.png',
-          text: 'fsa',
-          desc: 'de',
+          text: 'Последняя новость',
+          desc: 'По словам Лизы Су, главного исполнительного директора AMD, '
+              'в этом году появится 20 новых заводов по производству микросхем '
+              'и еще столько же в следующем году.',
         )
       ],
       //Get card swipe event callbacks

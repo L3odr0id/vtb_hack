@@ -20,52 +20,18 @@ class CardView extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: Stack(children: [
-            Container(
-                height: 260,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: imgRadius, topRight: imgRadius),
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/instruments/' + image)))),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image(image: AssetImage('assets/other/25.png'),
-                  height: 124,
-                  alignment: Alignment.topRight,),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) => MultipliersDialog());
-                    },
-                    icon: Padding(
-                        padding: EdgeInsets.only(top: 20, right: 20),
-                        child: Container(
-                            width: 30,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: imgRadius, topRight: imgRadius),
-                                image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image:
-                                        AssetImage('assets/other/228.png'))))))
-              ],
-            )
+            _image(imgRadius),
+            _strips(),
+            _moreInformationButton(context)
           ]),
         ),
         Padding(
           padding: EdgeInsets.only(top: 250),
           child: Container(
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery
+                .of(context)
+                .size
+                .width,
             child: Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -81,9 +47,12 @@ class CardView extends StatelessWidget {
                     padding: EdgeInsets.only(top: 12),
                   ),
                   Padding(
-                    child: Text(
-                      desc,
-                      style: GetTextStyle.desc,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 13),
+                      child: Text(
+                        desc,
+                        style: GetTextStyle.desc,
+                      ),
                     ),
                     padding: EdgeInsets.only(top: 20),
                   ),
@@ -136,5 +105,45 @@ class CardView extends StatelessWidget {
     //     ],
     //   ),
     // );
+  }
+
+  Widget _image(Radius imgRadius) {
+    return Container(
+        height: 260,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topLeft: imgRadius, topRight: imgRadius),
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage('assets/instruments/' + image))));
+  }
+
+  Widget _strips() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image(image: AssetImage('assets/other/25.png'),
+          height: 124,
+          alignment: Alignment.topRight,),
+      ],
+    );
+  }
+
+  Widget _moreInformationButton(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        IconButton(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) => MultipliersDialog());
+            },
+            iconSize: 30,
+            icon: Image(image: AssetImage('assets/other/228.png'),),
+
+        )],
+    );
   }
 }
