@@ -22,31 +22,36 @@ class _GamePageState extends State<GamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [
+        body: SafeArea(
+      child: Column(children: [
         _indicators(),
         _text(),
         _cards(),
         _stats(),
       ]),
-    );
+    ));
   }
 
   Widget _indicators() {
     return CircularPercentIndicator(
-      radius: 80.0,
+      radius: 160.0,
       animation: true,
       animationDuration: 1200,
       lineWidth: 20.0,
       percent: 0.5,
       center: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('общий капитал'),
+          Text(
+            'общий капитал',
+            style: GetTextStyle.smallGrey,
+          ),
           Text(currentState.currentMoney.toString())
         ],
       ),
       circularStrokeCap: CircularStrokeCap.butt,
-      backgroundColor: getColor.blueVTB,
-      progressColor: getColor.lightCircle,
+      backgroundColor: GetColor.blueVTB,
+      progressColor: GetColor.lightCircle,
     );
   }
 
