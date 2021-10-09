@@ -24,12 +24,16 @@ class GameCard {
       required this.buy});
 }
 
+enum MultiplierType { absolute, percent, money }
+
 /// Описание элемента статистики
 class Multiplier {
   final String mainText;
   final String description;
+  final MultiplierType type;
 
-  const Multiplier({required this.mainText, required this.description});
+  const Multiplier(
+      {required this.mainText, required this.description, required this.type});
 }
 
 /// Игровое событие. Содержит информацию
