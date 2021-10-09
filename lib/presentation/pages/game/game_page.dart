@@ -56,7 +56,34 @@ class _GamePageState extends State<GamePage> {
   }
 
   Widget _text() {
-    return Container();
+    return Card(
+      child: Column(children: [
+        Stack(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Text("Latest news")],
+            ), 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [Icon(Icons.fiber_manual_record_outlined)],
+            )
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Text("По словам Лизы Су, главного исполнительного директора AMD, "
+              "в этом году появится 20 новых заводов по производству микросхем "
+              "и еще столько же в следующем году. Так же она напомнила, "
+              "что компания ожидает закрытия сделки по покупке разработчика "
+              "интегральных микросхем Xilinx к концу этого года. Тем не менее,"
+              " Су всячески уклонялась от ответа на вопрос о том, не угрожает ли"
+              " AMD переход некоторых компаний, производящих электронику, "
+              "на микросхемы собственной разработки. Стоимость акций AMD "
+              "снижаются в ходе предварительных торгов на бирже Nasdaq во вторник."),
+        )
+      ]),
+    );
   }
 
   Widget _cards() {
