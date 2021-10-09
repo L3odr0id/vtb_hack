@@ -84,14 +84,7 @@ class _GamePageState extends State<GamePage> {
       cardController: _cardController,
       context: context,
       //add the first 3 cards (widgets)
-      items: [
-        CardView(
-          text: "First card",
-          image: 'amd1.png',
-        ),
-        CardView(text: "Second card", image: 'amd1.png'),
-        CardView(text: "Third card", image: 'amd1.png'),
-      ],
+      items: [CardView(image: 'amd1.png', text: 'fsa')],
       //Get card swipe event callbacks
       onCardSwiped: (dir, index, widget) {
         //Add the next card using _cardController
