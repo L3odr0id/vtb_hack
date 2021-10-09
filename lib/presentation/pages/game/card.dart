@@ -31,14 +31,9 @@ class CardView extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                    height: 100,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                            topLeft: imgRadius, topRight: imgRadius),
-                        image: DecorationImage(
-                            fit: BoxFit.contain,
-                            image: AssetImage('assets/other/25.png')))),
+                Image(image: AssetImage('assets/other/25.png'),
+                  height: 124,
+                  alignment: Alignment.topRight,),
               ],
             ),
             Row(
