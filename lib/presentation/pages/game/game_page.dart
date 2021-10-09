@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:swipeable_card_stack/swipe_controller.dart';
 import 'package:swipeable_card_stack/swipeable_card_stack.dart';
@@ -56,33 +57,61 @@ class _GamePageState extends State<GamePage> {
   }
 
   Widget _text() {
-    return Card(
-      child: Column(children: [
-        Stack(
-          children: [
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(15, 20, 15, 20),
+      child: Card(
+        child: Container(
+          height: 246,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Color(0xff3A83F1),
+          ),
+          child: Column(children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Text("Latest news")],
-            ), 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [Icon(Icons.fiber_manual_record_outlined)],
-            )
-          ],
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 12, 0, 5),
+                  child: Text(
+                    "Последние новости",
+                    style: GoogleFonts.roboto(textStyle:TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white)),
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              ],
+            ),
+            Expanded(
+              flex: 1,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
+                  child: Text(
+                    "По словам Лизы Су, главного исполнительного директора AMD, "
+                    "в этом году появится 20 новых заводов по производству микросхем и "
+                    "еще столько же в следующем году. Так же она напомнила, "
+                    "что компания ожидает закрытия сделки по покупке разработчика "
+                    "интегральных микросхем Xilinx к концу этого года. Тем не менее,"
+                    " Су всячески уклонялась от ответа на вопрос о том, не угрожает ли"
+                    " AMD переход некоторых компаний, производящих электронику, "
+                    "на микросхемы собственной разработки. Стоимость акций AMD "
+                    "снижаются в ходе предварительных торгов на бирже Nasdaq во вторник.",
+                    textAlign: TextAlign.left,
+                    style: GoogleFonts.roboto(textStyle: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w300,
+                        color: Colors.white,)),
+                  ),
+                ),
+              ),
+            ),
+          ]),
         ),
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Text("По словам Лизы Су, главного исполнительного директора AMD, "
-              "в этом году появится 20 новых заводов по производству микросхем "
-              "и еще столько же в следующем году. Так же она напомнила, "
-              "что компания ожидает закрытия сделки по покупке разработчика "
-              "интегральных микросхем Xilinx к концу этого года. Тем не менее,"
-              " Су всячески уклонялась от ответа на вопрос о том, не угрожает ли"
-              " AMD переход некоторых компаний, производящих электронику, "
-              "на микросхемы собственной разработки. Стоимость акций AMD "
-              "снижаются в ходе предварительных торгов на бирже Nasdaq во вторник."),
-        )
-      ]),
+      ),
     );
   }
 
