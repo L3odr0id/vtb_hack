@@ -54,8 +54,8 @@ class _GamePageState extends State<GamePage> {
         //Return false to not animate cards
       },
       //
-      enableSwipeUp: true,
-      enableSwipeDown: false,
+      enableSwipeUp: false,
+      enableSwipeDown: true,
     );
   }
 
