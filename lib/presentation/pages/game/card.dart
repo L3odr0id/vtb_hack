@@ -20,7 +20,7 @@ class CardView extends StatelessWidget {
                   image: DecorationImage(
                       fit: BoxFit.cover,
                       image: AssetImage('assets/instruments/' + image)))),
-          Text('Advanced Micro Devices (AMD)'),
+          Text(text),
         ],
       ),
     );

@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: getBody(),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: blueVTB,
+        backgroundColor: getColor.blueVTB,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         type: BottomNavigationBarType.fixed,

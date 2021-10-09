@@ -26,6 +26,8 @@ dependencies:
   
   # https://pub.dev/packages/swipeable_card_stack
   swipeable_card_stack: ^0.0.4
+  # https://pub.dev/packages/percent_indicator
+  percent_indicator: ^3.4.0
 
 
   # The following adds the Cupertino Icons font to your application.

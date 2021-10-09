@@ -38,12 +38,14 @@ class Multiplier {
 
 /// Игровое событие. Содержит информацию
 class GameEvent {
+  final int id;
   final String eventText;
   final GameCard gameCard;
   final Map<Multiplier, double> multipliers;
 
   const GameEvent(
-      {required this.eventText,
+      {required this.id,
+      required this.eventText,
       required this.gameCard,
       required this.multipliers});
 }
