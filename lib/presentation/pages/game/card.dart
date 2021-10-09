@@ -12,56 +12,62 @@ class CardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Radius imgRadius = Radius.circular(10.0);
-    return Stack(
-      children: [
-        Card(
-          color: GetColor.dark2,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Stack(children: [
-            _image(imgRadius),
-            _strips(),
-            _moreInformationButton(context)
-          ]),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 250),
-          child: Container(
-            width: MediaQuery
-                .of(context)
-                .size
-                .width,
-            child: Card(
+    return Expanded(
+      child:
+      SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Stack(
+          children: [
+            Card(
+              color: GetColor.dark2,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              color: GetColor.mainVTB,
-              child: Column(
-                children: [
-                  Padding(
-                    child: Text(
-                      text,
-                      style: GetTextStyle.header,
-                    ),
-                    padding: EdgeInsets.only(top: 12),
+              child: Stack(children: [
+                _image(imgRadius),
+                _strips(),
+                _moreInformationButton(context)
+              ]),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 250),
+              child: Container(
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  Padding(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 13),
-                      child: Text(
-                        desc,
-                        style: GetTextStyle.desc,
+                  color: GetColor.mainVTB,
+                  child: Column(
+                    children: [
+                      Padding(
+                        child: Text(
+                          text,
+                          style: GetTextStyle.header,
+                        ),
+                        padding: EdgeInsets.only(top: 12),
                       ),
-                    ),
-                    padding: EdgeInsets.only(top: 20),
+                      Padding(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(13, 0, 13, 22),
+                          child: Text(
+                            desc,
+                            style: GetTextStyle.desc,
+                          ),
+                        ),
+                        padding: EdgeInsets.only(top: 20),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
     // return Card(
     //   shape: RoundedRectangleBorder(
