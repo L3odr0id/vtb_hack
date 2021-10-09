@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:vtb_game_win/common/constants.dart';
 import 'package:vtb_game_win/presentation/pages/about/about_page.dart';
 import 'package:vtb_game_win/presentation/pages/fame/hall_of_fame.dart';
-import 'package:vtb_game_win/presentation/pages/game/choose_strategy.dart';
+import 'package:vtb_game_win/presentation/pages/questionare/choose_strategy.dart';
 import 'package:vtb_game_win/presentation/pages/game/game_page.dart';
 
 class HomePage extends StatefulWidget {

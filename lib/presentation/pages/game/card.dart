@@ -21,7 +21,7 @@ class CardView extends StatelessWidget {
           ),
           child: Stack(children: [
             Container(
-                height: 300,
+                height: 260,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
                         topLeft: imgRadius, topRight: imgRadius),
@@ -68,7 +68,7 @@ class CardView extends StatelessWidget {
           ]),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 290),
+          padding: EdgeInsets.only(top: 250),
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Card(
