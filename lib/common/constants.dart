@@ -29,4 +29,7 @@ class GetTextStyle {
 
   static TextStyle normal = GoogleFonts.roboto(
       fontWeight: FontWeight.w500, fontSize: 12, color: Colors.black);
+
+  static TextStyle desc2 = GoogleFonts.roboto(
+      fontWeight: FontWeight.w300, fontSize: 18, color: Colors.black);
 }

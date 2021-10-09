@@ -12,8 +12,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
   int _selectedIndex = 1;
-  Widget _hallOfFame = ChooseStrategy();
+  Widget _hallOfFame = HallOfFamePage();
   Widget _game = GamePage();
   // Widget _about = AboutPage();
 
