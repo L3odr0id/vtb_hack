@@ -28,7 +28,7 @@ class _ChooseStrategyState extends State<ChooseStrategy> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(15, 20, 15, 14),
+              padding: const EdgeInsets.fromLTRB(15, 20, 15, 0),
               child: Card(
                 child: Container(
                   decoration: BoxDecoration(
@@ -44,7 +44,7 @@ class _ChooseStrategyState extends State<ChooseStrategy> {
                               Flexible(
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(20, 16, 20, 10),
+                                  const EdgeInsets.fromLTRB(20, 16, 20, 10),
                                   child: Text(
                                     "Какую стратегию ты хочешь выбрать?",
                                     style: GoogleFonts.roboto(
@@ -60,8 +60,7 @@ class _ChooseStrategyState extends State<ChooseStrategy> {
                           ListTile(
                             title: Text(
                               'Долгосрочное \nинвестирование',
-                              style:
-                                  GoogleFonts.roboto(textStyle: _textStyle()),
+                              style: GoogleFonts.roboto(textStyle: _textStyle()),
                             ),
                             leading: Radio<Strategy>(
                               value: Strategy.longInves,
@@ -90,6 +89,7 @@ class _ChooseStrategyState extends State<ChooseStrategy> {
                           ),
                         ],
                       ),
+
                       Padding(
                         padding: const EdgeInsets.only(top: 111),
                         child: Row(
@@ -97,11 +97,9 @@ class _ChooseStrategyState extends State<ChooseStrategy> {
                           children: [
                             RotatedBox(
                               quarterTurns: 2,
-                              child: Image(
-                                image: AssetImage('assets/other/25.png'),
+                              child: Image(image: AssetImage('assets/other/25.png'),
                                 height: 124,
-                                alignment: Alignment.topRight,
-                              ),
+                                alignment: Alignment.topRight,),
                             ),
                           ],
                         ),
@@ -115,7 +113,7 @@ class _ChooseStrategyState extends State<ChooseStrategy> {
               children: [
                 Image(image: AssetImage('assets/instruments/tuan_1.png')),
                 Padding(
-                  padding: const EdgeInsets.only(left: 15),
+                  padding: const EdgeInsets.only(left: 19),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       primary: Colors.white,
