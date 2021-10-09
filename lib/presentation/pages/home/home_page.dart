@@ -14,28 +14,33 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 1;
   Widget _hallOfFame = HallOfFamePage();
   Widget _game = GamePage();
-  Widget _about = AboutPage();
+  // Widget _about = AboutPage();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: getBody(),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: GetColor.darkBlueVTB,
+        backgroundColor: GetColor.mainVTB,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
         type: BottomNavigationBarType.fixed,
         currentIndex: this._selectedIndex,
         items: [
+          BottomNavigationBarItem(icon: Container(), label: ""),
           BottomNavigationBarItem(
             icon: _bottomBarIcon('trophy'),
             label: "Hall of fame",
           ),
-          BottomNavigationBarItem(icon: _bottomBarIcon('home'), label: "Game"),
           BottomNavigationBarItem(
-            icon: _bottomBarIcon('profile'),
-            label: "About",
-          )
+              icon: _bottomBarIcon('portfolio'), label: "Game"),
+          BottomNavigationBarItem(icon: Container(), label: ""),
+          // BottomNavigationBarItem(
+          //   icon: _bottomBarIcon('profile'),
+          //   label: "About",
+          // )
         ],
         onTap: (int index) {
           this.onTapHandler(index);
@@ -50,8 +55,8 @@ class _HomePageState extends State<HomePage> {
         return this._hallOfFame;
       case 1:
         return this._game;
-      case 2:
-        return this._about;
+      // case 2:
+      //   return this._about;
       default:
         return this._game;
     }
