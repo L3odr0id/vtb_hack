@@ -36,8 +36,6 @@ class _GamePageState extends State<GamePage> {
             ),
           ),
         ),
-        //_text(),
-
         _cards(),
         Container(
           height: 20,
@@ -74,7 +72,7 @@ class _GamePageState extends State<GamePage> {
           child: Row(
             children: [
               Text(
-                currentState.currentMoney.toString(),
+                currentState.currentMoney.toString() + ' ₽',
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
                       fontSize: 36,

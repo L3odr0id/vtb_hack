@@ -20,3 +20,5 @@ class GetTextStyle {
   static TextStyle desc = GoogleFonts.roboto(
       fontWeight: FontWeight.w300, fontSize: 18, color: Colors.white);
 }
+
+const int gameLimit = 10;
