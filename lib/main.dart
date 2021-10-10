@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vtb_game_win/presentation/pages/home/home_page.dart';
+import 'package:vtb_game_win/presentation/pages/questionare/base.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ninja Y',
-      home: HomePage(),
+      home: BaseQ(),
     );
   }
 }

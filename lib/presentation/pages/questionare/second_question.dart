@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vtb_game_win/presentation/pages/questionare/first_question.dart';
+import 'package:vtb_game_win/datasource/data.dart';
 
 enum Strategy { longInves, shortInvest }
 
-class HelloWordPage extends StatefulWidget {
+class SecondQ extends StatefulWidget {
   final PageController pageController;
-  const HelloWordPage({Key? key, required this.pageController})
-      : super(key: key);
+  const SecondQ({Key? key, required this.pageController}) : super(key: key);
 
   @override
   _HelloWordPageState createState() => _HelloWordPageState();
 }
 
-class _HelloWordPageState extends State<HelloWordPage> {
+class _HelloWordPageState extends State<SecondQ> {
   Strategy? _strategy = Strategy.longInves;
 
   TextStyle _textStyle() {
@@ -51,7 +50,7 @@ class _HelloWordPageState extends State<HelloWordPage> {
                                     padding: const EdgeInsets.fromLTRB(
                                         20, 16, 20, 10),
                                     child: Text(
-                                      "Добро пожаловать в LeaRn",
+                                      "Какая финансовая цель вам больше подходит?",
                                       style: GoogleFonts.roboto(
                                           textStyle: TextStyle(
                                               fontWeight: FontWeight.w500,
@@ -62,44 +61,37 @@ class _HelloWordPageState extends State<HelloWordPage> {
                                 )
                               ],
                             ),
-                            Padding(
-                              child: Text(
-                                  "Это игра для обучения базовым принципам инвестирования. Пожалуйста, ответьте на несколько вопросов, чтобы мы сделали игру интереснее именно для вас.",
-                                  style: GoogleFonts.roboto(
-                                      textStyle: _textStyle())),
-                              padding: EdgeInsets.only(left: 12, right: 12),
+                            ListTile(
+                              title: Text(
+                                'Я коплю на квартиру / машину',
+                                style:
+                                    GoogleFonts.roboto(textStyle: _textStyle()),
+                              ),
+                              leading: Radio<Strategy>(
+                                value: Strategy.longInves,
+                                groupValue: _strategy,
+                                onChanged: (Strategy? value) {
+                                  setState(() {
+                                    _strategy = value;
+                                  });
+                                },
+                              ),
                             ),
-                            // ListTile(
-                            //   title: Text(
-                            //     'Долгосрочное \nинвестирование',
-                            //     style:
-                            //         GoogleFonts.roboto(textStyle: _textStyle()),
-                            //   ),
-                            //   leading: Radio<Strategy>(
-                            //     value: Strategy.longInves,
-                            //     groupValue: _strategy,
-                            //     onChanged: (Strategy? value) {
-                            //       setState(() {
-                            //         _strategy = value;
-                            //       });
-                            //     },
-                            //   ),
-                            // ),
-                            // ListTile(
-                            //   title: Text(
-                            //     'Краткосрочное \nинвестирование',
-                            //     style: _textStyle(),
-                            //   ),
-                            //   leading: Radio<Strategy>(
-                            //     value: Strategy.shortInvest,
-                            //     groupValue: _strategy,
-                            //     onChanged: (Strategy? value) {
-                            //       setState(() {
-                            //         _strategy = value;
-                            //       });
-                            //     },
-                            //   ),
-                            // ),
+                            ListTile(
+                              title: Text(
+                                'Я коплю на пенсию',
+                                style: _textStyle(),
+                              ),
+                              leading: Radio<Strategy>(
+                                value: Strategy.shortInvest,
+                                groupValue: _strategy,
+                                onChanged: (Strategy? value) {
+                                  setState(() {
+                                    _strategy = value;
+                                  });
+                                },
+                              ),
+                            ),
                           ],
                         ),
                         Padding(
@@ -134,8 +126,11 @@ class _HelloWordPageState extends State<HelloWordPage> {
                         primary: Colors.white,
                       ),
                       onPressed: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) => FirstQ()));
+                        if (_strategy == Strategy.longInves) {
+                          resultsOfQuestionare.add('Short');
+                        } else {
+                          resultsOfQuestionare.add('Long');
+                        }
                         widget.pageController.nextPage(
                           duration: Duration(milliseconds: 300),
                           curve: Curves.ease,
@@ -158,7 +153,7 @@ class _HelloWordPageState extends State<HelloWordPage> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              child: Image(image: AssetImage('assets/natasha/Group_38.png')),
+              child: Image(image: AssetImage('assets/natasha/group_33.png')),
               padding: EdgeInsets.only(bottom: 15),
             ),
           )
