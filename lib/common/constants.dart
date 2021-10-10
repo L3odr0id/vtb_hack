@@ -34,4 +34,4 @@ class GetTextStyle {
       fontWeight: FontWeight.w300, fontSize: 18, color: Colors.black);
 }
 
-const int gameLimit = 10;
+const int gameLimit = 8;

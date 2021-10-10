@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:swipeable_card_stack/swipe_controller.dart';
 import 'package:swipeable_card_stack/swipeable_card_stack.dart';
+import 'package:vtb_game_win/common/constants.dart';
 import 'package:vtb_game_win/common/debug.dart';
 import 'package:vtb_game_win/datasource/data.dart';
 import 'package:vtb_game_win/domain/entities/event.dart';
 import 'package:vtb_game_win/domain/entities/game_state.dart';
 import 'package:vtb_game_win/presentation/pages/game/card.dart';
+import 'package:vtb_game_win/presentation/pages/game/cogratulations.dart';
 
 class GamePage extends StatefulWidget {
   @override
@@ -189,39 +191,47 @@ class _GamePageState extends State<GamePage> {
       context: context,
       //add the first 3 cards (widgets)
       items: [
-        CardView(
-          gameEvent: productionEvents.first,
-        ),
-        CardView(
-          gameEvent: productionEvents[1],
-        )
+        CardView(gameEvent: initialCards[0]),
+        CardView(gameEvent: initialCards[1]),
+        CardView(gameEvent: initialCards[2]),
       ],
       //Get card swipe event callbacks
       onCardSwiped: (dir, index, widget) {
         //Add the next card using _cardController
         if (widget != null) {
-          final a = dir;
           Impact i = Impact(moneyImpact: 1, riskImpact: 1);
+          int id = 0;
           if (dir == Direction.left) {
             i = (widget as CardView).gameEvent.gameCard.sell;
+            id = widget.gameEvent.id;
           } else {
             i = (widget as CardView).gameEvent.gameCard.buy;
+            id = widget.gameEvent.id;
           }
-          currentState.prevMoney = currentState.currentMoney;
-          int moneyChange = i.moneyImpact.toInt() +
-              rng.nextInt(max(i.moneyImpact / 10, -i.moneyImpact / 10).toInt() -
-                  min(i.moneyImpact / 10, -i.moneyImpact / 10).toInt()) +
-              min(i.moneyImpact / 10, -i.moneyImpact / 10).toInt();
-          moneyChange *= currentState.currentRisk ~/ 10;
-          currentState.currentMoney += moneyChange;
+          if (i.moneyImpact != 0) {
+            currentState.prevMoney = currentState.currentMoney;
+            int moneyChange =
+                i.moneyImpact.toInt(); //+ getRandom(i.moneyImpact);
+            if (currentState.currentRisk != 0 &&
+                currentState.currentRisk ~/ 10 != 0)
+              moneyChange *= currentState.currentRisk ~/ 10;
+            print(moneyChange);
+            currentState.currentMoney += moneyChange;
+          }
           currentState.currentRisk += i.riskImpact;
           if (currentState.currentRisk > 100) currentState.currentRisk = 100;
+          currentState.prevIds.add(id);
+
+          if (currentState.prevIds.length >= gameLimit)
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Congratulations()));
           //(widget as CardView).gameEvent.gameCard.
           _cardController.addItem(
             CardView(
-              gameEvent: productionEvents.first,
+              gameEvent: productionEvents[id],
             ),
           );
+          print(id);
           setState(() {});
         }
 
@@ -232,5 +242,26 @@ class _GamePageState extends State<GamePage> {
       enableSwipeUp: false,
       enableSwipeDown: false,
     );
+  }
+
+  double getMax(double a, double b) {
+    if (a > b)
+      return a;
+    else
+      return b;
+  }
+
+  double getMin(double a, double b) {
+    if (a < b)
+      return a;
+    else
+      return b;
+  }
+
+  int getRandom(double a) {
+    if (currentState.currentRisk == 0) return 0;
+    double p10 = a / currentState.currentRisk;
+    double rand = rng.nextDouble() * p10;
+    return rand.toInt();
   }
 }

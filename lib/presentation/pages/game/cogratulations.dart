@@ -24,7 +24,10 @@ class Congratulations extends StatelessWidget {
                       child: Column(
                         children: [
                           _button("Начать \nприключение"),
-                          _button("Попробовать \nеще раз"),
+                          Padding(
+                            child: _button("Попробовать \nеще раз"),
+                            padding: EdgeInsets.only(top: 15),
+                          )
                         ],
                       ),
                     )
@@ -66,7 +69,7 @@ class Congratulations extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          "1.000.000 ",
+                          "795.294 ₽",
                           style: GoogleFonts.roboto(
                               textStyle: TextStyle(
                                   fontSize: 36,
@@ -158,17 +161,18 @@ class Congratulations extends StatelessWidget {
   }
 
   Widget _button(String text) {
-    return                           ElevatedButton(
+    return ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
+          minimumSize: Size(150, 48),
           primary: Colors.white,
         ),
         child: Text(text,
             textAlign: TextAlign.center,
             style: GoogleFonts.roboto(
               fontWeight: FontWeight.w400,
+              fontSize: 18,
               color: Color(0xff3A83F1),
             )));
-
   }
 }
