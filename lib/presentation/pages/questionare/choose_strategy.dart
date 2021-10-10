@@ -141,7 +141,7 @@ class _ChooseStrategyState extends State<ChooseStrategy> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              child: Image(image: AssetImage('assets/instruments/tuan_1.png')),
+              child: Image(image: AssetImage('assets/natasha/Group_38.png')),
               padding: EdgeInsets.only(bottom: 15),
             ),
           )

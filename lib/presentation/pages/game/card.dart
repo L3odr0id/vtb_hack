@@ -12,87 +12,62 @@ class CardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Radius imgRadius = Radius.circular(10.0);
-    return Stack(
-      children: [
-        Card(
-          color: GetColor.dark2,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Stack(children: [
-            Container(
-                height: 260,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(
-                        topLeft: imgRadius, topRight: imgRadius),
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage('assets/instruments/' + image)))),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Image(image: AssetImage('assets/other/25.png'),
-                  height: 124,
-                  alignment: Alignment.topRight,),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) => MultipliersDialog());
-                    },
-                    icon: Padding(
-                        padding: EdgeInsets.only(top: 20, right: 20),
-                        child: Container(
-                            width: 30,
-                            height: 30,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                    topLeft: imgRadius, topRight: imgRadius),
-                                image: DecorationImage(
-                                    fit: BoxFit.contain,
-                                    image:
-                                        AssetImage('assets/other/228.png'))))))
-              ],
-            )
-          ]),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 250),
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            child: Card(
+    return Expanded(
+      child:
+      SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Stack(
+          children: [
+            Card(
+              color: GetColor.dark2,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              color: GetColor.mainVTB,
-              child: Column(
-                children: [
-                  Padding(
-                    child: Text(
-                      text,
-                      style: GetTextStyle.header,
-                    ),
-                    padding: EdgeInsets.only(top: 12),
+              child: Stack(children: [
+                _image(imgRadius),
+                _strips(),
+                _moreInformationButton(context)
+              ]),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 250),
+              child: Container(
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  Padding(
-                    child: Text(
-                      desc,
-                      style: GetTextStyle.desc,
-                    ),
-                    padding: EdgeInsets.only(top: 20),
+                  color: GetColor.mainVTB,
+                  child: Column(
+                    children: [
+                      Padding(
+                        child: Text(
+                          text,
+                          style: GetTextStyle.header,
+                        ),
+                        padding: EdgeInsets.only(top: 12),
+                      ),
+                      Padding(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(13, 0, 13, 22),
+                          child: Text(
+                            desc,
+                            style: GetTextStyle.desc,
+                          ),
+                        ),
+                        padding: EdgeInsets.only(top: 20),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     );
     // return Card(
     //   shape: RoundedRectangleBorder(
@@ -136,5 +111,45 @@ class CardView extends StatelessWidget {
     //     ],
     //   ),
     // );
+  }
+
+  Widget _image(Radius imgRadius) {
+    return Container(
+        height: 260,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topLeft: imgRadius, topRight: imgRadius),
+            image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage('assets/instruments/' + image))));
+  }
+
+  Widget _strips() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image(image: AssetImage('assets/other/25.png'),
+          height: 124,
+          alignment: Alignment.topRight,),
+      ],
+    );
+  }
+
+  Widget _moreInformationButton(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        IconButton(
+            onPressed: () {
+              showDialog(
+                  context: context,
+                  builder: (context) => MultipliersDialog());
+            },
+            iconSize: 30,
+            icon: Image(image: AssetImage('assets/other/228.png'),),
+
+        )],
+    );
   }
 }
