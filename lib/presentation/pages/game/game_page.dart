@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:swipeable_card_stack/swipe_controller.dart';
 import 'package:swipeable_card_stack/swipeable_card_stack.dart';
 import 'package:vtb_game_win/common/debug.dart';
+import 'package:vtb_game_win/datasource/data.dart';
 import 'package:vtb_game_win/domain/entities/game_state.dart';
 import 'package:vtb_game_win/presentation/pages/game/card.dart';
 
@@ -164,21 +165,20 @@ class _GamePageState extends State<GamePage> {
       //add the first 3 cards (widgets)
       items: [
         CardView(
-          image: 'amd1.png',
-          text: 'Последняя новость',
-          desc: 'По словам Лизы Су, главного исполнительного директора AMD, '
-              'в этом году появится 20 новых заводов по производству микросхем '
-              'и еще столько же в следующем году.',
+          gameEvent: productionEvents.first,
+        ),
+        CardView(
+          gameEvent: productionEvents[1],
         )
       ],
       //Get card swipe event callbacks
       onCardSwiped: (dir, index, widget) {
         //Add the next card using _cardController
-        _cardController.addItem(CardView(
-          text: "Next card",
-          image: 'amd1.png',
-          desc: 'das',
-        ));
+        _cardController.addItem(
+          CardView(
+            gameEvent: productionEvents.first,
+          ),
+        );
 
         //Take action on the swiped widget based on the direction of swipe
         //Return false to not animate cards

@@ -10,6 +10,7 @@ class Impact {
 class GameCard {
   final String image;
   final String text;
+  final bool isTutorial;
 
   // Влияние на индикаторы
   final Impact sell;
@@ -21,7 +22,8 @@ class GameCard {
       required this.text,
       required this.sell,
       required this.hold,
-      required this.buy});
+      required this.buy,
+      required this.isTutorial});
 }
 
 enum MultiplierType { absolute, percent, money }

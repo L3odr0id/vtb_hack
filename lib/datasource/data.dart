@@ -5,7 +5,7 @@ List<GameEvent> productionEvents = [
   GameEvent(
       id: 1,
       eventText: 'event 1',
-      gameCard: debugEvent.gameCard,
+      gameCard: debugEventTutorial.gameCard,
       multipliers: {}),
   GameEvent(
       id: 2,
@@ -23,3 +23,5 @@ List<GameEvent> productionEvents = [
       gameCard: debugEvent.gameCard,
       multipliers: {}),
 ];
+
+List<String> resultsOfQuestionare = [];
