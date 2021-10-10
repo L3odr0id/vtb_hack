@@ -1,7 +1,7 @@
 /// Влияние карточки на индикаторы в случае выбора
 class Impact {
   final double moneyImpact;
-  final double riskImpact;
+  final int riskImpact;
 
   const Impact({required this.moneyImpact, required this.riskImpact});
 }

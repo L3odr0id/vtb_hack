@@ -52,7 +52,7 @@ class CardView extends StatelessWidget {
                         textAlign: TextAlign.center,
                         style: GetTextStyle.header,
                       ),
-                      padding: EdgeInsets.only(top: 12),
+                      padding: EdgeInsets.only(top: 12, left: 12, right: 12),
                     ),
                     Padding(
                       child: Padding(

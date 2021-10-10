@@ -24,4 +24,6 @@ List<GameEvent> productionEvents = [
       multipliers: {}),
 ];
 
+List<GameEvent> initialCards = [];
+
 List<String> resultsOfQuestionare = [];

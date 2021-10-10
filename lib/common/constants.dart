@@ -22,13 +22,13 @@ class GetTextStyle {
 
   //for dialog
   static TextStyle verySmall = GoogleFonts.roboto(
-      fontWeight: FontWeight.w300, fontSize: 9, color: Colors.black);
+      fontWeight: FontWeight.w300, fontSize: 12, color: Colors.black);
 
   static TextStyle dialogHeader = GoogleFonts.roboto(
-  fontWeight: FontWeight.w400, fontSize: 18, color: Colors.black);
+      fontWeight: FontWeight.w400, fontSize: 18, color: Colors.black);
 
   static TextStyle normal = GoogleFonts.roboto(
-      fontWeight: FontWeight.w500, fontSize: 12, color: Colors.black);
+      fontWeight: FontWeight.w500, fontSize: 14, color: Colors.black);
 
   static TextStyle desc2 = GoogleFonts.roboto(
       fontWeight: FontWeight.w300, fontSize: 18, color: Colors.black);

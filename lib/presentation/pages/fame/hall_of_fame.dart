@@ -5,7 +5,11 @@ import 'package:vtb_game_win/common/constants.dart';
 class HallOfFamePage extends StatelessWidget {
   final List<int> prices = List<int>.filled(5, 0);
   final List<String> dates = [
-    "23.12.01", "23.12.01", "23.12.01", "23.12.01","23.12.01",
+    "10.10.21",
+    "10.10.21",
+    "10.10.21",
+    "09.10.21",
+    "09.10.21",
   ];
 
   // HallOfFamePage({required this.prices, required this.dates});
@@ -55,11 +59,11 @@ class HallOfFamePage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                "1.000.000",
+                                getText(index),
                                 style: GoogleFonts.roboto(
                                     textStyle: TextStyle(
                                         fontWeight: FontWeight.w500,
-                                        color:  prices[index] >= 0
+                                        color: prices[index] >= 0
                                             ? Color(0xff55EFC4)
                                             : Color(0xffFF4459),
                                         fontSize: 36)),
@@ -92,5 +96,22 @@ class HallOfFamePage extends StatelessWidget {
         },
       ),
     );
+  }
+
+  String getText(int index) {
+    switch (index) {
+      case 0:
+        return "1.023.524";
+      case 1:
+        return "1.561.322";
+      case 2:
+        return "1.145.984";
+      case 3:
+        return "1.582.912";
+      case 4:
+        return "1.167.832";
+      default:
+        return "1.482.742";
+    }
   }
 }

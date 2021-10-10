@@ -1,6 +1,6 @@
 import 'package:vtb_game_win/domain/entities/event.dart';
 
-const Impact _tempImpact = Impact(moneyImpact: 1.0, riskImpact: 1.0);
+const Impact _tempImpact = Impact(moneyImpact: 1000.0, riskImpact: 10);
 const GameEvent debugEvent = GameEvent(
     id: 0,
     eventText:
